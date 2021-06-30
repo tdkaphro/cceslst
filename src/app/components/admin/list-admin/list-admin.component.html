@@ -1,0 +1,65 @@
+<div class="traitements-container">
+    <div class="custom-card">
+        <mat-card class="mat-elevation-z3">
+            <p class="mat-card-title">Administrateurs</p>
+            <div class="btn-sections">
+                <button mat-stroked-button color="primary" (click)="addAdmin()">
+                    <mat-icon style="margin-right: 10px;">add</mat-icon>
+                    Ajouter admin
+                </button>
+            </div>
+            <div class="" *ngIf="adminsResult?.content">
+                <div class="search-section">
+                    <mat-form-field class="search-mat-form-field">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                </div>
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="nom">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom & Prenom </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span>{{row.nom}} {{row.prenom}}</span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.email}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="login">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom d'utilisateur </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.login}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                        <td mat-cell *matCellDef="let row">
+                            <div *ngIf="row.type !== 'S'" class="actions">
+                                <button *ngIf="row.etat === 'B'" mat-stroked-button (click)="archiveAdmin(row)"
+                                    color="primary" style="color: var(--green-color);">Activer</button>
+                                <button *ngIf="row.etat === 'A'" mat-stroked-button (click)="archiveAdmin(row)"
+                                    color="warn">Désactiver</button>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+            </div>
+        </mat-card>
+    </div>
+</div>

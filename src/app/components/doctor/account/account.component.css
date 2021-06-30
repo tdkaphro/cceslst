@@ -1,0 +1,269 @@
+.traitements-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-card-title {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 10px !important;
+}
+
+.no-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 325px;
+    color: #5c5c5c;
+}
+
+.btn-section {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 30px;
+}
+
+.btn-section button,
+.no-items button {
+    color: var(--primary-color);
+    border-radius: 20px;
+    min-width: 150px;
+}
+
+.fake-button {
+    margin-top: 20px;
+    animation-name: zoom-in-out-animation;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    background-color: white;
+    color: var(--accent-color);
+}
+
+.fake-title {
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.fake-title span {
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 10px;
+    padding: 6px 20px;
+}
+
+.access-aligner-word {
+    padding: 5px 5px;
+    border-radius: 8px;
+    color: white;
+    background-color: var(--accent-color);
+}
+
+.span-status {
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+}
+
+@keyframes zoom-in-out-animation {
+    0% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.search-section {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.search-mat-form-field {
+    font-size: 14px;
+    width: 200px;
+}
+
+.mat-column-nomPatient {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 25% !important;
+    width: 25% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-typeTraitement {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-dateCreation {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-etape {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 35% !important;
+    width: 35% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+@media screen and (max-width: 1300px) {
+    .fake-title {
+        font-size: 1.3em;
+        text-align: center;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .fake-title {
+        font-size: 1.3em;
+        text-align: center;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .mat-column-nomPatient {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+    }
+
+    .mat-column-typeTraitement {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+    }
+
+    .mat-column-dateCreation {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 35% !important;
+        width: 35% !important;
+    }
+
+    .fake-title {
+        font-size: 1.3em;
+        text-align: center;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .mat-column-nomPatient {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+        font-size: 0.8em;
+    }
+
+    .mat-column-typeTraitement {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        display: none;
+    }
+
+    .mat-column-dateCreation {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 35% !important;
+        width: 35% !important;
+        font-size: 0.8em;
+    }
+
+    .fake-title {
+        font-size: 1.3em;
+        text-align: center;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .mat-column-nomPatient {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+        font-size: 0.5em;
+    }
+
+    .mat-column-typeTraitement {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        display: none;
+    }
+
+    .mat-column-dateCreation {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 35% !important;
+        width: 35% !important;
+        font-size: 0.5em;
+    }
+
+    .fake-title {
+        font-size: 1.3em;
+        text-align: center;
+        margin-top: 100px;
+    }
+}

@@ -1,0 +1,15 @@
+<div class="popup">
+    <mat-toolbar class="toolbar">
+        <span class="toolbar-title toolbar-filler">{{libelle}}</span>
+        <button mat-icon-button mat-dialog-close class="mat-icon-button">
+            <mat-icon style="color:white" aria-label="Menu" class="material-icons">close</mat-icon>
+        </button>
+    </mat-toolbar>
+    <div id="content-popup">
+        <video oncanplay="load();" onload="play();" controls loop autoplay allowfullscreen mozallowfullscreen webkitallowfullscreen playsinline
+                width="100%" class="custom-video" data-stylerecorder="true">
+                <source src="blob:http://localhost:4200/2922e11c-c5ef-4ded-a84d-a02298271e83" type="video/mp4"
+                    data-stylerecorder="true">
+            </video>
+    </div>
+</div>

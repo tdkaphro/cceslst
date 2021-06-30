@@ -1,0 +1,82 @@
+<div class="dashboard-container">
+    <div class="stat-users">
+        <div class="custom-card">
+            <mat-card class="mat-elevation-z3 center-content">
+                <p class="card-title-stat">Praticien par état de confirmation</p>
+                <canvas id="chartUserByStatus" width="350" height="250"></canvas>
+            </mat-card>
+        </div>
+        <div class="custom-card">
+            <mat-card class="mat-elevation-z3 center-content">
+                <p class="card-title-stat">Taux de praticien actif/passif</p>
+                <canvas id="chartUserByTrt" width="350" height="250"></canvas>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="stat-trt">
+        <div class="custom-card">
+            <mat-card class="mat-elevation-z3 center-content">
+                <p class="card-title-stat">Praticiens par nombre de traitements</p>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="ordre">
+                        <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Classement </th>
+                        <td mat-cell *matCellDef="let i=index">
+                            <span *ngIf="paginator">{{i+1 + paginator.pageIndex*10}}</span>
+                        </td>
+                    </ng-container>
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="nom">
+                        <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Praticien </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span class="patient-name">{{row.praticien.nom}} {{row.praticien.prenom}}</span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="count">
+                        <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Nombre de traitements </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.count}}
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="cursor: pointer;"
+                        routerLink="/admin/main/praticien/{{row.praticien.login}}">
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="stat-trt">
+        <div class="custom-card">
+            <mat-card class="mat-elevation-z3 center-content">
+                <p class="card-title-stat">Traitement par statut</p>
+                <canvas id="chartTrtByStatus" class="chart-trt-by-date"></canvas>
+            </mat-card>
+        </div>
+        <div class="custom-card">
+            <mat-card class="mat-elevation-z3 center-content">
+                <p class="card-title-stat">Nombre des traitements par mois</p>
+                <div class="years-selector">
+                    <mat-form-field>
+                        <mat-label>Sélectionner une année</mat-label>
+                        <mat-select [(value)]="selectedYear" (selectionChange)="onYearSelected()">
+                            <mat-option *ngFor="let item of trtByDateData; let i=index;" [value]="i">{{item.year}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartTrtByDate" class="chart-trt-by-date"></canvas>
+                </div>
+
+            </mat-card>
+        </div>
+    </div>
+</div>

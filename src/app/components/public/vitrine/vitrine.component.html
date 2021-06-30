@@ -1,0 +1,42 @@
+<div>
+    <div>
+        <div class="background">
+            <video oncanplay="muted=true;play();" loop autoplay allowfullscreen mozallowfullscreen webkitallowfullscreen playsinline
+                width="100%" class="custom-video" data-stylerecorder="true">
+                <source src="http://accessaligner.com/assets/video/access-aligner.mp4" type="video/mp4"
+                    data-stylerecorder="true">
+            </video>
+
+        </div>
+        <div class="header">
+            <div class="header-text" id="slogan">
+                <p class="slogan">Smile, I'm INVISIBLE</p>
+            </div>
+            <div>
+                <img src="assets/img/white-logo.png" class="img-logo">
+            </div>
+            <div class="connect">
+                <button mat-raised-button color="primary" (click)="navigateToLogin()">Connectez vous</button>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="presentation">
+        <app-presentation></app-presentation>
+    </div>
+    <div class="section" id="avantages">
+        <app-avantages></app-avantages>
+    </div>
+    <div class="section" id="entretien">
+        <app-entretien></app-entretien>
+    </div>
+    <div class="section" id="mode-utilisation">
+        <app-mode-utilisation></app-mode-utilisation>
+    </div>
+    <div class="section" id="composition">
+        <app-composition></app-composition>
+    </div>
+    <div class="section" id="contact-us">
+        <app-contact style="width: 100%;"></app-contact>
+    </div>
+
+</div>

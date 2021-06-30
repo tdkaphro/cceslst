@@ -1,0 +1,185 @@
+<div class="admin-bg">
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #drawer class="sidenav mat-elevation-z3" fixedInViewport="true"
+            [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+            [opened]="!(isHandset$ | async)" style="border-right: 0px;">
+            <mat-toolbar color="primary" class="c-toolbar" style="background:var(--accent-color)">
+                <span class="example-spacer">Menu</span>
+                <button mat-icon-button (click)="drawer.toggle()" class="mat-icon-button sidenav-toggle-button">
+                    <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
+                </button>
+            </mat-toolbar>
+            <mat-nav-list>
+                <a mat-list-item routerLink="/admin/main/dashboard" (click)="closeDrawer();selectedMenuItem=-1"
+                    routerLinkActive="active" class="item-menu">
+                    <mat-icon style="margin-right:10px;">dashboard</mat-icon><span>Dashboard</span>
+                </a>
+                <a mat-list-item routerLink="/admin/main/praticiens" (click)="closeDrawer();selectedMenuItem=-1"
+                    routerLinkActive="active" class="item-menu">
+                    <mat-icon style="margin-right:10px;">person</mat-icon><span>Praticiens</span>
+                </a>
+                <a mat-list-item routerLink="/admin/main/traitements" (click)="closeDrawer();selectedMenuItem=-1"
+                    routerLinkActive="active" class="item-menu">
+                    <mat-icon style="margin-right:10px;">list</mat-icon><span>Demandes</span>
+                </a>
+                <a mat-list-item routerLinkActive="active" class="item-menu" (click)="handleMenuItem(4)">
+                    <mat-icon style="margin-right:10px;">assignment</mat-icon>
+                    <span style="flex: 1 1 auto;">Étude</span>
+                    <mat-icon *ngIf="selectedMenuItem!==4">chevron_right</mat-icon>
+                    <mat-icon *ngIf="selectedMenuItem===4">expand_more</mat-icon>
+                </a>
+                <div *ngIf="selectedMenuItem===4">
+                    <a mat-list-item routerLink="/admin/main/filtered-traitements/1" (click)="closeDrawer()"
+                        routerLinkActive="active" class="sub-item-menu">
+                        <span>Nouveau</span>
+                    </a>
+                    <a mat-list-item routerLink="/admin/main/filtered-traitements/2" (click)="closeDrawer()"
+                        routerLinkActive="active" class="sub-item-menu">
+                        <span>En cours de traitement</span>
+                    </a>
+                </div>
+                <a mat-list-item routerLinkActive="active" class="item-menu" (click)="handleMenuItem(1)">
+                    <mat-icon style="margin-right:10px;">euro</mat-icon>
+                    <span style="flex: 1 1 auto;">Devis</span>
+                    <mat-icon *ngIf="selectedMenuItem!==1">chevron_right</mat-icon>
+                    <mat-icon *ngIf="selectedMenuItem===1">expand_more</mat-icon>
+                </a>
+                <div *ngIf="selectedMenuItem===1">
+                    <a mat-list-item routerLink="/admin/main/filtered-traitements/6" (click)="closeDrawer()"
+                        routerLinkActive="active" class="sub-item-menu">
+                        <span>En attente</span>
+                    </a>
+                    <a mat-list-item routerLink="/admin/main/filtered-traitements/7" (click)="closeDrawer()"
+                        routerLinkActive="active" class="sub-item-menu">
+                        <span>Validé</span>
+                    </a>
+                </div>
+                <a mat-list-item routerLinkActive="active" class="item-menu" (click)="handleMenuItem(2)">
+                    <mat-icon style="margin-right:10px;">attachment</mat-icon>
+                    <span style="flex: 1 1 auto;">Plan de traitement</span>
+                    <mat-icon *ngIf="selectedMenuItem!==2">chevron_right</mat-icon>
+                    <mat-icon *ngIf="selectedMenuItem===2">expand_more</mat-icon>
+                </a>
+                <div *ngIf="selectedMenuItem===2">
+                    <a mat-list-item routerLink="/admin/main/filtered-traitements/3" (click)="closeDrawer()"
+                        routerLinkActive="active" class="sub-item-menu">
+                        <span>En attente</span>
+                    </a>
+                    <a mat-list-item routerLink="/admin/main/filtered-traitements/4" (click)="closeDrawer()"
+                        routerLinkActive="active" class="sub-item-menu">
+                        <span>Validé</span>
+                    </a>
+                </div>
+                <a mat-list-item routerLink="/admin/main/filtered-traitements/8"
+                    (click)="closeDrawer();selectedMenuItem=-1" routerLinkActive="active" class="item-menu">
+                    <mat-icon style="margin-right:10px;">construction</mat-icon><span>Production</span>
+                </a>
+                <a mat-list-item class="item-menu" routerLinkActive="active" (click)="handleMenuItem(3)">
+                    <mat-icon style="margin-right:10px;">local_shipping</mat-icon>
+                    <span style="flex: 1 1 auto;">Livraison</span>
+                    <mat-icon *ngIf="selectedMenuItem!==3">chevron_right</mat-icon>
+                    <mat-icon *ngIf="selectedMenuItem===3">expand_more</mat-icon>
+                </a>
+                <div *ngIf="selectedMenuItem===3">
+                    <a mat-list-item routerLink="/admin/main/filtered-traitements/9" (click)="closeDrawer()"
+                        routerLinkActive="active" class="sub-item-menu">
+                        <span>Prévu le</span>
+                    </a>
+                    <a mat-list-item routerLink="/admin/main/filtered-traitements/10" (click)="closeDrawer()"
+                        routerLinkActive="active" class="sub-item-menu">
+                        <span>Confirmé</span>
+                    </a>
+                </div>
+                <a mat-list-item routerLink="/admin/main/filtered-traitements/13"
+                    (click)="closeDrawer();selectedMenuItem=-1" routerLinkActive="active" class="item-menu">
+                    <mat-icon style="margin-right:10px;">assignment</mat-icon><span>Facture</span>
+                </a>
+                <mat-divider></mat-divider>
+                <a mat-list-item routerLink="/admin/main/blocked-users" (click)="closeDrawer();selectedMenuItem=-1"
+                    routerLinkActive="active" class="item-menu">
+                    <mat-icon style="margin-right:10px;">person</mat-icon><span>Utilisateurs bloqués</span>
+                </a>
+                <mat-divider></mat-divider>
+                <a mat-list-item routerLink="/admin/main/messages" (click)="closeDrawer();selectedMenuItem=-1"
+                    routerLinkActive="active" class="item-menu">
+                    <mat-icon style="margin-right:10px;">mail</mat-icon><span>Messages anonymes</span>
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content style="background: white;color: var(--primary-color)">
+            <mat-toolbar color="primary" class="mat-elevation-z3" [ngClass]="{'no-padding': (isHandset$ | async)}"
+                style="background:var(--accent-color)">
+                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                    *ngIf="(isHandset$ | async) || !drawer.opened">
+                    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+                <div style="display: flex;" (click)="goHome()">
+                    <img class="access-logo" src="assets/img/white-logo-title.png">
+                </div>
+                <span class="example-spacer"></span>
+                <div class="idaq-nav-container">
+                    <span class="profile-item">
+                        <span class="profile">
+                            <span id="name-profile" (click)="navigateToProfile()">{{displayName}}</span>
+                        </span>
+                        <button mat-icon-button [matMenuTriggerFor]="notif"
+                            *ngIf="notifications.length>0; else noNotif">
+                            <mat-icon [matBadge]="notifications.length" matBadgeColor="warn">notifications</mat-icon>
+                        </button>
+                        <mat-menu #notif="matMenu">
+                            <button *ngFor="let item of notifications" mat-menu-item
+                                (click)="navigateToTraitementDetails(item, 'notif')">
+                                <div style="display: flex; flex-direction: row;">
+                                    <span class="message-style"><strong>{{item.userNotification}}:</strong>
+                                        {{item.msgNotification}}</span>
+                                    <mat-icon matTooltip="Ignorer"
+                                        style="margin-right: 0px !important; color: var(--accent-color)"
+                                        (click)="ignoreNotif(item);$event.stopPropagation();">close</mat-icon>
+                                </div>
+                            </button>
+                        </mat-menu>
+                        <ng-template #noNotif>
+                            <button mat-icon-button>
+                                <mat-icon matBadgeColor="warn">notifications</mat-icon>
+                            </button>
+                        </ng-template>
+                        <button mat-icon-button [matMenuTriggerFor]="mail" *ngIf="messages.length>0; else noMessages">
+                            <mat-icon [matBadge]="messages.length" matBadgeColor="warn">mail</mat-icon>
+                        </button>
+                        <mat-menu #mail="matMenu">
+                            <button *ngFor="let item of messages" mat-menu-item
+                                (click)="navigateToTraitementDetails(item, 'message')">
+                                <span class="message-style"><strong>Dr. {{item.nomDentiste}}</strong> a envoyé un
+                                    message pour le traitement de
+                                    {{item.nomPatient}}</span>
+                            </button>
+                        </mat-menu>
+                        <ng-template #noMessages>
+                            <button mat-icon-button>
+                                <mat-icon matBadgeColor="warn">mail</mat-icon>
+                            </button>
+                        </ng-template>
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="navigateToProfile()">
+                                <mat-icon style="color:gray;">vpn_key</mat-icon>
+                                <span>Modifier mot de passe</span>
+                            </button>
+                            <button mat-menu-item routerLink="/admin/main/admins" *ngIf="currentUser.type === 'S'">
+                                <mat-icon style="color:gray;">person</mat-icon>
+                                <span>Administrateurs</span>
+                            </button>
+                            <button mat-menu-item (click)="logout()">
+                                <mat-icon style="color:gray;">exit_to_app</mat-icon>
+                                <span>Déconnexion</span>
+                            </button>
+                        </mat-menu>
+                    </span>
+                </div>
+            </mat-toolbar>
+            <router-outlet id="container"></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

@@ -1,0 +1,139 @@
+<div class="profile-container">
+    <div class="custom-card">
+        <mat-card class="mat-elevation-z3 profile-card">
+            <div class="profile-header">
+                <img src="assets/img/logo-title.png">
+                <p>- Profil -</p>
+            </div>
+            <div class="profile-content">
+                <form [formGroup]="profileForm">
+                    <div class="register-row">
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nom</mat-label>
+                                <input matInput placeholder="Nom" formControlName="nom" name="nom">
+                                <mat-error *ngIf="fprofile.nom.errors">
+                                    <span *ngIf="fprofile.nom.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Prenom</mat-label>
+                                <input matInput placeholder="Nom" formControlName="prenom" name="prenom">
+                                <mat-error *ngIf="fprofile.prenom.errors">
+                                    <span *ngIf="fprofile.prenom.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nom d'utilisateur</mat-label>
+                                <input matInput placeholder="Nom d'utilisateur" type="text" formControlName="username"
+                                    name="username">
+                                <mat-error *ngIf="fprofile.username.errors">
+                                    <span *ngIf="fprofile.username.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Email" type="email" formControlName="email" name="email">
+                                <mat-error *ngIf="fprofile.email.errors">
+                                    <span *ngIf="fprofile.email.errors.required">Champ est requis!</span>
+                                    <span *ngIf="fprofile.email.errors.email">Format invalid!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Vous êtes un ?</mat-label>
+                                <mat-select formControlName="specialite" name="specialite">
+                                    <mat-option *ngFor="let specialty of specialties" [value]="specialty.value">
+                                        {{specialty.valueView}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="fprofile.specialite.errors">
+                                    <span *ngIf="fprofile.specialite.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Cabinet</mat-label>
+                                <input matInput type="text" placeholder="Cabinet" formControlName="cabinet"
+                                    name="cabinet">
+                                <mat-error *ngIf="fprofile.cabinet.errors">
+                                    <span *ngIf="fprofile.cabinet.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Matricule fiscale</mat-label>
+                                <input matInput type="text" placeholder="Matricule" formControlName="matricule"
+                                    name="matricule">
+                                <mat-error *ngIf="fprofile.matricule.errors">
+                                    <span *ngIf="fprofile.matricule.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Adresse</mat-label>
+                                <input matInput placeholder="Adresse" formControlName="address" name="address">
+                                <mat-error *ngIf="fprofile.address.errors">
+                                    <span *ngIf="fprofile.address.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Code postale</mat-label>
+                                <input matInput placeholder="Code postale" formControlName="code_postale"
+                                    name="code_postale">
+                                <mat-error *ngIf="fprofile.code_postale.errors">
+                                    <span *ngIf="fprofile.code_postale.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Ville</mat-label>
+                                <input matInput placeholder="Ville" formControlName="ville" name="ville">
+                                <mat-error *ngIf="fprofile.ville.errors">
+                                    <span *ngIf="fprofile.ville.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>N° téléphone</mat-label>
+                                <input matInput placeholder="N° téléphone" formControlName="phone" name="phone">
+                                <mat-error *ngIf="fprofile.phone.errors">
+                                    <span *ngIf="fprofile.phone.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Téléphone portable</mat-label>
+                                <input matInput placeholder="Téléphone portable" formControlName="mobile" name="mobile">
+                                <mat-error *ngIf="fprofile.mobile.errors">
+                                    <span *ngIf="fprofile.mobile.errors.required">Champ est requis!</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="button-section">
+                <button mat-raised-button color="primary" style="background-color: var(--primary-color);"
+                    (click)="onSubmit()">Sauvegarder</button>
+            </div>
+            <div></div>
+        </mat-card>
+    </div>
+</div>

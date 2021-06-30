@@ -1,0 +1,22 @@
+<div class="popup">
+    <mat-toolbar class="toolbar">
+        <span class="toolbar-filler">{{message.firstName}} {{message.lastName}}</span>
+        <button mat-icon-button mat-dialog-close class="mat-icon-button">
+            <mat-icon style="color:white" aria-label="Menu" class="material-icons">close</mat-icon>
+        </button>
+    </mat-toolbar>
+    <div id="content-popup">
+        <div class="object">
+            <span class="title">Email:</span>
+            <span class="content">{{message.emailEm}}</span>
+        </div>
+        <div class="object">
+            <span class="title">Objet:</span>
+            <span class="content">{{message.objet}}</span>
+        </div>
+        <div class="object">
+            <span class="title">Message:</span>
+            <span class="content">{{message.msg}}</span>
+        </div>
+    </div>
+</div>

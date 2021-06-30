@@ -1,0 +1,133 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.sidenav .mat-toolbar {
+    background: transparent;
+}
+
+.fixed-toolbar {
+    position: fixed;
+    z-index: 2;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.idaq-nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.toolbar-menu-title {
+    font-weight: bold;
+    margin: 0 10px;
+    font-size: 0.8em;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.sidenav-menu-title {
+    font-weight: bold;
+    margin: 0 10px;
+    font-size: 0.8em;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.toolbar-menu-title:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.access-logo {
+    width: 170px;
+    cursor: pointer;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.profile-item {
+    color: white;
+}
+
+#name-profile {
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.btn-fab {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
+}
+
+.doctor-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("../../../assets/img/bg.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.message-style {
+    white-space: pre-wrap;
+    display: flex;
+}
+
+@media screen and (max-width: 1300px) {
+    .access-logo {
+        width: 170px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .access-logo {
+        width: 160px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .access-logo {
+        width: 150px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .access-logo {
+        width: 120px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .access-logo {
+        width: 100px;
+        cursor: pointer;
+    }
+}

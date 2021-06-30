@@ -1,0 +1,312 @@
+.traitements-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.praticien-card {
+    margin-bottom: 16px;
+}
+
+.praticien-content {
+    margin-top: 80px;
+}
+
+.username {
+    text-align: center;
+    font-size: 1.3em;
+    color: var(--primary-color);
+}
+
+.praticien-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #5c5c5c;
+}
+
+.praticien-row div {
+    width: 49%;
+}
+
+.praticien-title {
+    color: black;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 50px;
+}
+
+.btn-delete {
+    background-color: #f44336;
+}
+.btn-activate {
+    background-color: #4caf50;
+}
+
+.mat-card-title {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 10px !important;
+}
+
+.no-items {
+    text-align: center;
+}
+
+.span-status {
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+}
+
+.search-section {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.search-mat-form-field {
+    font-size: 14px;
+    width: 200px;
+}
+
+.mat-column-nomPatient {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 25% !important;
+    width: 25% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-typeTraitement {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-dateCreation {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-etape {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 35% !important;
+    width: 35% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+@media screen and (max-width: 1300px) {
+    .praticien-row {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .praticien-row div {
+        width: 49%;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+
+    .mat-column-nomPatient {
+        font-size: 0.9em;
+    }
+
+    .mat-column-typeTraitement {
+        font-size: 0.9em;
+    }
+
+    .mat-column-dateCreation {
+        font-size: 0.9em;
+    }
+
+    .mat-column-etape {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .praticien-row {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .praticien-row div {
+        width: 49%;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+
+    .mat-column-nomPatient {
+        font-size: 0.8em;
+    }
+
+    .mat-column-typeTraitement {
+        font-size: 0.8em;
+    }
+
+    .mat-column-dateCreation {
+        font-size: 0.8em;
+    }
+
+    .mat-column-etape {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .praticien-row {
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .praticien-row div {
+        width: 100%;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+
+    .mat-column-nomPatient {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+        font-size: 0.7em;
+    }
+
+    .mat-column-typeTraitement {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        font-size: 0.7em;
+    }
+
+    .mat-column-dateCreation {
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 55% !important;
+        width: 55% !important;
+        font-size: 0.7em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .praticien-row {
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .praticien-row div {
+        width: 100%;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+
+    .mat-column-nomPatient {
+        flex: 0 0 40% !important;
+        width: 40% !important;
+        font-size: 0.6em;
+    }
+
+    .mat-column-typeTraitement {
+        display: none;
+    }
+
+    .mat-column-dateCreation {
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 60% !important;
+        width: 60% !important;
+        font-size: 0.6em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .praticien-row {
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .praticien-row div {
+        width: 100%;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+
+    .mat-column-nomPatient {
+        flex: 0 0 35% !important;
+        width: 35% !important;
+        font-size: 0.5em;
+    }
+
+    .mat-column-typeTraitement {
+        display: none;
+    }
+
+    .mat-column-dateCreation {
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 65% !important;
+        width: 65% !important;
+        font-size: 0.5em;
+    }
+}

@@ -1,0 +1,41 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" opened="false">
+    <mat-toolbar><img src="assets/img/logo-title.png" alt="Access aligner" class="access-logo"></mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item class="sidenav-menu-title" href="#presentation">Présentation</a>
+      <a mat-list-item class="sidenav-menu-title" href="#avantages">Avantages</a>
+      <a mat-list-item class="sidenav-menu-title" href="#entretien">Entretien</a>
+      <a mat-list-item class="sidenav-menu-title" href="#mode-utilisation">Mode d'utilisation</a>
+      <a mat-list-item class="sidenav-menu-title" href="#composition">Composition</a>
+      <a mat-list-item class="sidenav-menu-title" href="#contact-us">Contact</a>
+      <a mat-list-item class="sidenav-menu-title" (click)="navigateToLogin()">{{loginLabel}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="background: white;color: var(--primary-color)">
+    <mat-toolbar color="primary" [class.mat-elevation-z3]="!navIsTransparent"
+      [class.navbar-transparent]="navIsTransparent" [class.navbar-blue]="!navIsTransparent"
+      [ngClass]="{'no-padding': (isHandset$ | async)}">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async" style="margin-right: 10px;">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <a href="#"><img src="assets/img/white-logo-title.png" alt="Access aligner" class="access-logo"></a>
+      <span class="example-spacer"></span>
+      <div class="idaq-nav-container" *ngIf="!(isHandset$ | async)">
+        <a class="toolbar-menu-title" href="#presentation">Présentation</a>
+        <a class="toolbar-menu-title" href="#avantages">Avantages</a>
+        <a class="toolbar-menu-title" href="#entretien">Entretien</a>
+        <a class="toolbar-menu-title" href="#mode-utilisation">Mode d'utilisation</a>
+        <a class="toolbar-menu-title" href="#composition">Composition</a>
+        <a class="toolbar-menu-title" href="#contact-us">Contact</a>
+        <a class="toolbar-menu-title" [class.login-btn-filled]="!navIsTransparent"
+          [class.login-btn-strocked]="navIsTransparent" (click)="navigateToLogin()">{{loginLabel}}</a>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet id="container"></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

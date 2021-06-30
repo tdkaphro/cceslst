@@ -1,0 +1,52 @@
+<div class="doctor-bg">
+    <mat-sidenav-container class="sidenav-container" style="width: 100%; background-color: transparent;">
+        <mat-sidenav-content style="color: var(--primary-color)">
+            <mat-toolbar color="primary" class="mat-elevation-z3" [ngClass]="{'no-padding': (isHandset$ | async)}"
+                style="background:var(--accent-color)">
+                <!--<img src="assets/img/logo-title.png" alt="Access aligner" class="access-logo" (click)="goHome()">-->
+                <div style="display: flex;" (click)="goHome()">
+                    <img class="access-logo" src="assets/img/white-logo-title.png">
+                </div>
+                <span class="example-spacer"></span>
+                <div class="idaq-nav-container">
+                    <span class="profile-item">
+                        <span class="profile">
+                            <span id="name-profile" (click)="navigateToProfile()">{{displayName}}</span>
+                        </span>
+                        <button mat-icon-button [matMenuTriggerFor]="notif" *ngIf="messages.length>0; else noMessages">
+                            <mat-icon [matBadge]="messages.length" matBadgeColor="warn">mail</mat-icon>
+                        </button>
+                        <mat-menu #notif="matMenu">
+                            <button *ngFor="let item of messages"  mat-menu-item (click)="navigateToTraitementDetails(item.idTraitement)">
+                                <span class="message-style">Access aligner vous a envoyé un message pour le traitement de {{item.nomPatient}}</span>
+                            </button>
+                        </mat-menu>
+                        <ng-template #noMessages>
+                            <button mat-icon-button>
+                                <mat-icon matBadgeColor="warn">mail</mat-icon>
+                            </button>
+                        </ng-template>
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="navigateToProfile()">
+                                <mat-icon style="color:gray;">account_circle</mat-icon>
+                                <span>Mon compte</span>
+                            </button>
+                            <button mat-menu-item (click)="navigateToPassword()">
+                                <mat-icon style="color:gray;">vpn_key</mat-icon>
+                                <span>Modifier le mot de passe</span>
+                            </button>
+                            <button mat-menu-item (click)="logout()">
+                                <mat-icon style="color:gray;">exit_to_app</mat-icon>
+                                <span>Déconnexion</span>
+                            </button>
+                        </mat-menu>
+                    </span>
+                </div>
+            </mat-toolbar>
+            <router-outlet id="container"></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

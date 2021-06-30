@@ -1,0 +1,84 @@
+<div class="traitements-container">
+    <div class="custom-card">
+        <mat-card class="mat-elevation-z3">
+            <p class="mat-card-title">Praticiens</p>
+            <div class="" *ngIf="activePraticien?.content">
+                <div class="search-section">
+                    <mat-form-field class="search-mat-form-field">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                </div>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="nom">
+                        <th mat-header-cell *matHeaderCellDef> Praticien </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span class="patient-name">{{row.nom}}
+                                {{row.prenom}}</span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.email}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="telFixe">
+                        <th mat-header-cell *matHeaderCellDef> Téléphone </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.telFixe}}<br>
+                            {{row.telPortable}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="telPortable">
+                        <th mat-header-cell *matHeaderCellDef> Téléphone portable </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.telPortable}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="ville">
+                        <th mat-header-cell *matHeaderCellDef> Ville </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.ville}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-icon-button aria-label="" *ngIf="row.etat === 'A'" (click)="resetPassword(row);$event.stopPropagation()">
+                                <mat-icon matTooltip="Réinitialiser le mot de passe" class="ic-pwd">vpn_key</mat-icon>
+                            </button>
+                            <button mat-icon-button aria-label="" *ngIf="row.etat === 'I'"  (click)="acceptUser(row);$event.stopPropagation()">
+                                <mat-icon matTooltip="Accepter" class="ic-check">check</mat-icon>
+                            </button>
+                            <button mat-icon-button aria-label="" *ngIf="row.etat === 'A' || row.etat === 'I'" (click)="freezeUser(row);$event.stopPropagation()">
+                                <mat-icon matTooltip="Désactiver" class="ic-freeze">close</mat-icon>
+                            </button>
+                            <button mat-icon-button aria-label="" (click)="deleteUser(row);$event.stopPropagation()">
+                                <mat-icon matTooltip="Supprimer" class="ic-freeze">delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="cursor: pointer;"
+                        routerLink="/admin/main/praticien/{{row.login}}">
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+            </div>
+        </mat-card>
+    </div>
+</div>

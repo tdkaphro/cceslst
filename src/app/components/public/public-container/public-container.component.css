@@ -1,0 +1,92 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: transparent;
+}
+
+.fixed-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.idaq-nav-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.toolbar-menu-title {
+  margin: 0 10px;
+  font-size: 0.8em;
+  color: white;
+  text-decoration: none;
+}
+
+.sidenav-menu-title {
+  font-weight: bold;
+  margin: 0 10px;
+  font-size: 0.8em;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.toolbar-menu-title:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.access-logo{
+  width: 170px;
+  cursor: pointer;
+}
+
+.access-logo{
+  height: 40px;
+  cursor: pointer;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.navbar-transparent {
+  background: transparent !important;
+  color: white;
+}
+
+.navbar-blue {
+  background: var(--accent-color) !important;
+  color: white;
+}
+
+.login-btn-filled {
+  padding: 5px 20px;
+  border-radius: 20px;
+  background-color: white;
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+.login-btn-strocked {
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: solid 2px;
+  cursor: pointer;
+}

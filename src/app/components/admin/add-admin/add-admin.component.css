@@ -1,0 +1,40 @@
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: #2c2c2c;
+}
+
+.page-title {
+    font-size: 1.25em;
+    color: #495057;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-top: 10px !important;
+}
+
+form {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 49%;
+}
+
+.btn-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.row-add-admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add-admin-card {
+    width: 100%;
+}

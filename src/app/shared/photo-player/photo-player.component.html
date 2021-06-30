@@ -1,0 +1,11 @@
+<div class="popup">
+    <mat-toolbar class="toolbar">
+        <span class="toolbar-title toolbar-filler">{{libelle}}</span>
+        <button mat-icon-button mat-dialog-close class="mat-icon-button">
+            <mat-icon style="color:white" aria-label="Menu" class="material-icons">close</mat-icon>
+        </button>
+    </mat-toolbar>
+    <div id="content-popup">
+        <ngx-image-viewer  [src]="photo" [(config)]="config" ></ngx-image-viewer>
+    </div>
+</div>

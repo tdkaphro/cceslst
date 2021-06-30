@@ -1,0 +1,134 @@
+.entretien {
+    display: flex;
+    flex-direction: column;
+}
+
+.entretien-body {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 100%;
+    color: #2c2c2c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.entretien-body p {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.title {
+    text-align: center;
+    color: white;
+}
+
+.section-cleaning {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px;
+}
+.section-cleaning img {
+    width: 150px;
+    border-radius: 20px;
+    border: solid white 3px;
+    margin-left: 25px;
+}
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    border: solid white 3px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle span {
+    margin-left: 40px;
+    margin-right: 40px;
+    line-height: 1.6em;
+}
+
+@media screen and (max-width: 1300px) {
+    .entretien-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .entretien-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .entretien-body {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .entretien-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .section-cleaning {
+        padding: 10px 0px;
+    }
+    
+    .section-cleaning img {
+        width: 95px;
+        border-radius: 20px;
+        border: solid white 3px;
+        margin-left: 20px;
+    }
+    .circle {
+        width: 95px;
+        height: 95px;
+        border-radius: 20px;
+    }
+
+    .circle span {
+        margin-left: 20px;
+        margin-right: 20px;
+        line-height: 1.2em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .entretien-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .section-cleaning {
+        padding: 10px 0px;
+    }
+
+    .section-cleaning img {
+        width: 95px;
+        border-radius: 20px;
+        border: solid white 3px;
+        margin-left: 20px;
+    }
+    .circle {
+        width: 95px;
+        height: 95px;
+        border-radius: 20px;
+    }
+
+    .circle span {
+        margin-left: 20px;
+        margin-right: 20px;
+        line-height: 1.2em;
+    }
+}

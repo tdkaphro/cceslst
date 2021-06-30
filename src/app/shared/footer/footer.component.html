@@ -1,0 +1,29 @@
+<div class="footer">
+    <div class="info-contact">
+        <div class="grid-item">
+            <mat-icon class="ic-contact" style="color: var(--accent-color);">email</mat-icon>
+            <span>contact@accessaligner.com</span>
+        </div>
+        <div class="grid-item">
+            <mat-icon class="ic-contact" style="color: var(--accent-color);">phone</mat-icon>
+            <span>(+216) 50 74 74 30</span>
+        </div>
+        <div class="grid-item">
+            <mat-icon class="ic-contact" style="color: var(--accent-color);">location_city</mat-icon>
+            <span>Appt N°07, Immb N°17, Avenue Habib Thameur, 1069 Tunis, Tunisie</span>
+        </div>
+        <div class="grid-item">
+            <mat-icon class="ic-contact" style="color: var(--accent-color);">local_shipping</mat-icon>
+            <span>Entre 2 et 3 semaines</span>
+        </div>
+    </div>
+    <div class="social-icons">
+        <img src="assets/img/ic-facebook.png" (click)="navigateToFacebook()" alt="Facebook">
+        <img src="assets/img/ic-youtube.png" (click)="navigateToYoutube()" alt="Youtube">
+        <img src="assets/img/ic-twitter.png" (click)="navigateToTwitter()" alt="Twitter">
+        <img src="assets/img/ic-linkedin.png" (click)="navigateToLinkedin()" alt="Linkedin">
+    </div>
+    <p class="rights">Copyright © <span style="color: var(--primary-color);">accessaligner.com</span> - {{currentYear}}
+        - Developed By <span (click)="navigateToDeveloper()"
+            style="color: var(--primary-color); cursor: pointer;">IDAQ-Solutions</span></p>
+</div>

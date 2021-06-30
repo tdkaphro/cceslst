@@ -1,0 +1,240 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: Play;
+    src: url(assets/fonts/Montserrat-Regular.ttf) format("truetype");
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+}
+.ngx-gallery { display: inline-block; margin-bottom: 20px;width: 100%;  }
+label,
+input,
+p,
+mat-form-field .mat-form-field-wrapper,
+button .mat-button-wrapper,
+h1,
+a,
+span,
+body {
+    font-family: "Play", sans-serif;
+    line-height: 1.45;
+}
+
+mat-form-field {
+    font-size: 0.7em !important;
+}
+
+:root {
+    --primary-color: #0079a4;
+    --accent-color: #03aec8;
+    --gray-bg: #f2f2f2;
+    --bg-color: #f8f9fa;
+    --red-color: #f44336;
+    --green-color: #4caf50;
+    --text-gray-color: #7d7c83;
+    --icons-color: #646369;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #f8f9fa inset;
+}
+
+.cactus-stepper .mat-horizontal-stepper-header-container {
+    display: none;
+}
+
+.custom-dialog .mat-dialog-container {
+    padding: 0;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.custom-card .mat-card {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.custom-card-p0 .mat-card {
+    padding: 0;
+}
+
+.cactus-stepper .mat-horizontal-content-container {
+    padding: 0px;
+}
+
+.mat-table thead {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: -2rem 1rem 1rem 1rem;
+    -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 121, 164, 0.4);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 121, 164, 0.4);
+}
+
+th.mat-header-cell {
+    color: white;
+}
+
+th.mat-header-cell:first-of-type {
+    border-top-left-radius: 20px;
+}
+
+th.mat-header-cell:last-of-type {
+    border-top-right-radius: 20px;
+}
+
+th {
+    background-color: var(--primary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-bottom: 5px;
+}
+.mat-table {
+    background-color: transparent !important;
+}
+table tr:last-child td /*To remove the last border*/ {
+    border-bottom: 0 solid;
+}
+
+.custom-card .trt-info .mat-card {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.custom-card .trt-photos .mat-card {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.custom-card .trt-scans .mat-card,
+.custom-card .trt-plan .mat-card {
+    border-radius: 0px;
+}
+
+.custom-card .trt-status .mat-card {
+    border-top-right-radius: 0px;
+}
+
+.access-word {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+@media screen and (max-width: 1300px) {
+    .custom-card .trt-info .mat-card {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .custom-card .trt-photos .mat-card {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .custom-card .trt-status .mat-card {
+        border-top-right-radius: 0px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .custom-card .trt-info .mat-card {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .custom-card .trt-photos .mat-card {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .custom-card .trt-status .mat-card {
+        border-top-right-radius: 0px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .custom-card .trt-info .mat-card {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .custom-card .trt-photos .mat-card {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .custom-card .trt-status .mat-card {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    th.mat-header-cell:last-of-type,
+    .mat-column-telFixe {
+        border-top-right-radius: 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .custom-card .trt-info .mat-card {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .custom-card .trt-photos .mat-card {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .custom-card .trt-status .mat-card {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .mat-column-email {
+        border-top-right-radius: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .custom-card .trt-info .mat-card {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .custom-card .trt-photos .mat-card {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .custom-card .trt-status .mat-card {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .mat-column-email {
+        border-top-right-radius: 20px;
+    }
+}

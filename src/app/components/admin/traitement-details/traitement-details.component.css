@@ -1,0 +1,343 @@
+.traitement-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-patient {
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.patient-info {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.patient-info .patient-name {
+    margin: 0 10px;
+    color: #2c2c2c;
+}
+
+.patient-info .date-creation {
+    margin: 0 3px;
+    color: gray;
+    font-size: 0.8em;
+}
+
+.patient-info label {
+    color: var(--primary-color);
+}
+
+.custom-list {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.traitement {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.section1 {
+    width: 60%;
+}
+
+.section2 {
+    width: 39%;
+}
+
+.card-photos {
+    margin-top: 10px;
+}
+
+.section1 label {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.section1 span {
+    color: #2c2c2c;
+}
+
+.photos-radio {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.p-16 {
+    padding: 16px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.trt-photos {
+    margin-bottom: 10px;
+}
+
+.photos-radio div {
+    margin-bottom: 0px;
+}
+
+.traitement-info {
+    padding: 10px;
+}
+
+.traitement-info div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.traitement-info div label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: solid 1px var(--primary-color);
+    padding: 5px 10px;
+}
+
+.img-radio {
+    width: 98%;
+    margin-right: 2%;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.photos {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-fab {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
+}
+
+.traitement-step {
+    border-left: solid 5px;
+    padding: 10px 20px;
+    color: #5c5c5c;
+    margin-bottom: 10px;
+}
+
+.date-step {
+    color: gray;
+    font-size: 0.8em;
+}
+
+.status-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 10px;
+}
+
+.status-actions button {
+    background-color: var(--primary-color);
+    margin: 0px 10px;
+    min-width: 250px;
+    margin-bottom: 10px;
+}
+
+.files {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0px;
+}
+
+.files button {
+    min-width: 250px;
+}
+
+.status-content button {
+    background-color: var(--primary-color);
+    margin-top: 15px;
+    min-width: 200px;
+}
+
+.btn-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.traitement-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.traitement-header div {
+    width: 100%;
+}
+
+.ic-previous {
+    transform: rotate(180deg);
+    margin-right: 3px;
+}
+
+.back-button {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 20px;
+    right: 0;
+    margin-top: -6px;
+}
+
+.back-button button {
+    border-radius: 20px;
+    color: var(--accent-color);
+}
+
+.trt-plan {
+    margin-top: 10px;
+}
+
+.trt-plan-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trt-scans {
+    margin-top: 10px;
+}
+
+.videos-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.videos-section-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.photos-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.photos-section-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.rapport-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rapport-section-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.rapport-section-body div,
+.photos-section-body div,
+.videos-section-body div {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+    .section1 {
+        width: 60%;
+    }
+
+    .section2 {
+        width: 39%;
+    }
+
+    .photos-radio {
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .section1 {
+        width: 60%;
+    }
+
+    .section2 {
+        width: 39%;
+    }
+
+    .photos-radio {
+        grid-template-columns: auto auto auto;
+    }
+
+    .traitement {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .section1 {
+        width: 100%;
+    }
+
+    .section2 {
+        width: 100%;
+    }
+
+    .photos-radio {
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .traitement {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .section1 {
+        width: 100%;
+    }
+
+    .section2 {
+        width: 100%;
+    }
+
+    .photos-radio {
+        grid-template-columns: auto auto;
+    }
+
+    .traitement {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .section1 {
+        width: 100%;
+    }
+
+    .section2 {
+        width: 100%;
+    }
+
+    .photos-radio {
+        grid-template-columns: auto auto;
+    }
+
+    .traitement {
+        flex-direction: column;
+    }
+}

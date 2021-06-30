@@ -1,0 +1,138 @@
+.composition {
+    display: flex;
+    flex-direction: column;
+}
+
+.composition-body {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 100%;
+    color: #2c2c2c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.composition-body img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.composition-body .image {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.composition-body .description {
+    width: 50%;
+}
+
+@media screen and (max-width: 1300px) {
+    .composition-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .composition-body img {
+        width: 80%;
+    }
+
+    .composition-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .composition-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .composition-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .composition-body img {
+        width: 80%;
+    }
+
+    .composition-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .composition-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .composition-body {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .composition-body img {
+        width: 80%;
+    }
+
+    .composition-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .composition-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .composition-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .composition-body img {
+        width: 100%;
+    }
+
+    .composition-body .image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .composition-body .description {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .composition-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .composition-body img {
+        width: 100%;
+    }
+
+    .composition-body .image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .composition-body .description {
+        width: 100%;
+    }
+}

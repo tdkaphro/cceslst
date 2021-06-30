@@ -1,0 +1,304 @@
+<div class="all-container">
+    <div class="custom-card">
+        <mat-card class="mat-elevation-z3">
+            <mat-horizontal-stepper class="traitement-stepper" [linear]="isLinear" #stepper
+                style="background-color: transparent;" class="cactus-stepper-with-header">
+                <mat-step [stepControl]="step1Form">
+                    <div class="step-title">- Identité du patient -</div>
+                    <form [formGroup]="step1Form">
+                        <ng-template matStepLabel>Etape 1</ng-template>
+                        <div class="traitement-row">
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nom</mat-label>
+                                    <input matInput placeholder="Nom" formControlName="nom" name="nom">
+                                    <mat-error *ngIf="form1.nom.errors">
+                                        <span *ngIf="form1.nom.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Prenom</mat-label>
+                                    <input matInput placeholder="Nom" formControlName="prenom" name="prenom">
+                                    <mat-error *ngIf="form1.prenom.errors">
+                                        <span *ngIf="form1.prenom.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Sexe</mat-label>
+                                    <mat-select formControlName="sexe" name="sexe">
+                                        <mat-option *ngFor="let sexe of sexes" [value]="sexe.value">
+                                            {{sexe.valueView}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="form1.sexe.errors">
+                                        <span *ngIf="form1.sexe.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Date de naissance</mat-label>
+                                    <input matInput [matDatepicker]="picker1" readonly (click)="picker1.open()"
+                                        formControlName="birthday" name="birthday" [min]="minDate" [max]="maxDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi startView="multi-year" #picker1></mat-datepicker>
+
+                                    <mat-error *ngIf="form1.birthday.errors">
+                                        <span *ngIf="form1.birthday.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="btn-section">
+                            <button mat-raised-button style="background-color: var(--primary-color);" color="primary"
+                                matStepperNext>Suivant
+                                <mat-icon class="ic-next">arrow_right_alt</mat-icon></button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="step2Form">
+                    <div class="step-title">- Traitement -</div>
+                    <form [formGroup]="step2Form">
+                        <ng-template matStepLabel>Etape 2</ng-template>
+                        <div class="traitement-row">
+                            <div>
+                                <label id="example-radio-group-label">Traitement</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="traitementType" name="traitementType">
+                                    <mat-radio-button class="example-radio-button"
+                                        *ngFor="let traitementType of traitementTypes" [value]="traitementType.value">
+                                        {{traitementType.valueView}}
+                                    </mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.traitementType.errors">
+                                        <span *ngIf="form2.traitementType.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div></div>
+                        </div>
+                        <mat-list class="custom-list">
+                            <mat-list-item style="color: var(--primary-color);">PRESCRIPTION</mat-list-item>
+                            <mat-divider></mat-divider>
+                        </mat-list>
+                        <div>D’un point de vue fonctionnel, vous souhaitez:</div>
+                        <div class="traitement-row">
+                            <div>
+                                <label id="example-radio-group-label">Corriger l’occlusion inversée postérieure (si
+                                    présente) ?</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="flgOccIp" name="flgOccIp">
+                                    <mat-radio-button class="example-radio-button" value="O">Oui</mat-radio-button>
+                                    <mat-radio-button class="example-radio-button" value="N">Non</mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.flgOccIp.errors">
+                                        <span *ngIf="form2.flgOccIp.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div>
+                                <label id="example-radio-group-label">Corriger l’occlusion inversée antérieure (si
+                                    présente)
+                                    ?</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="flgOccIa" name="flgOccIa">
+                                    <mat-radio-button class="example-radio-button" value="O">Oui</mat-radio-button>
+                                    <mat-radio-button class="example-radio-button" value="N">Non</mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.flgOccIa.errors">
+                                        <span *ngIf="form2.flgOccIa.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div>
+                                <label id="example-radio-group-label">Fermer la béance (si applicable) ?</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="flgBeance" name="flgBeance">
+                                    <mat-radio-button class="example-radio-button" value="O">Oui</mat-radio-button>
+                                    <mat-radio-button class="example-radio-button" value="N">Non</mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.flgBeance.errors">
+                                        <span *ngIf="form2.flgBeance.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div>
+                                <label id="example-radio-group-label">Corriger la supracclusion (si présente) ?</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="flgSupracc" name="flgSupracc">
+                                    <mat-radio-button class="example-radio-button" value="O">Oui</mat-radio-button>
+                                    <mat-radio-button class="example-radio-button" value="N">Non</mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.flgSupracc.errors">
+                                        <span *ngIf="form2.flgSupracc.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div>
+                                <label id="example-radio-group-label">Rétablir la Classe I ?</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="flgClasse" name="flgClasse">
+                                    <mat-radio-button class="example-radio-button" value="O">Oui</mat-radio-button>
+                                    <mat-radio-button class="example-radio-button" value="N">Non</mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.flgClasse.errors">
+                                        <span *ngIf="form2.flgClasse.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div>
+                                <label id="example-radio-group-label">Réduire le surplomb ?</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="flgSurplomb" name="flgSurplomb">
+                                    <mat-radio-button class="example-radio-button" value="O">Oui</mat-radio-button>
+                                    <mat-radio-button class="example-radio-button" value="N">Non</mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.flgSurplomb.errors">
+                                        <span *ngIf="form2.flgSurplomb.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div>
+                                <label id="example-radio-group-label">Gestion des encombrements</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="flgEspace" name="flgEspace">
+                                    <mat-radio-button class="example-radio-button" value="O">Fermer tous les espaces
+                                    </mat-radio-button>
+                                    <mat-radio-button class="example-radio-button" value="N">Laisser les espaces libres
+                                        suivants</mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.flgEspace.errors">
+                                        <span *ngIf="form2.flgEspace.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div>
+                                <label id="example-radio-group-label">Extractions prévues</label>
+                                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                                    formControlName="flgExtraction" name="flgExtraction">
+                                    <mat-radio-button class="example-radio-button" value="O">Si nécessaire
+                                    </mat-radio-button>
+                                    <mat-radio-button class="example-radio-button" value="N">Non</mat-radio-button>
+                                    <mat-error *ngIf="isSubmitted && form2.flgExtraction.errors">
+                                        <span *ngIf="form2.flgExtraction.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-radio-group>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Commentaire</mat-label>
+                                    <textarea matInput maxlength="500" placeholder="Tapez votre commentaire ici"
+                                        formControlName="comment" name="comment"></textarea>
+                                    <mat-error *ngIf="form2.comment.errors">
+                                        <span *ngIf="form2.comment.errors.required">Champ est requis!</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div></div>
+                        </div>
+                        <div class="btn-section">
+                            <button mat-raised-button color="primary" matStepperNext
+                                style="background-color: var(--primary-color);" (click)="isSubmitted=true;">Suivant
+                                <mat-icon class="ic-next">arrow_right_alt</mat-icon></button>
+                            <button style="margin-right: 10px;" mat-button color="primary" matStepperPrevious
+                                class="btn-previous">
+                                <mat-icon class="ic-previous">arrow_right_alt</mat-icon>Précédent
+                            </button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="step3Form">
+                    <div class="step-title">- Importez les photos et radio de votre patient -</div>
+                    <form [formGroup]="step3Form">
+                        <ng-template matStepLabel>Etape 3</ng-template>
+                        <div class="warning">
+                            <b style="color: var(--primary-color); font-size: 1em;">ATTENTION:</b> Veillez à prendre des
+                            photos d'une qualité suffisante, afin de faciliter la bonne
+                            interprétation de notre équipe d'orthodontistes.
+                        </div>
+
+                        <div class="img-row">
+                            <div class="img-container" *ngFor="let item of picRadio">
+                                <input style="display: none" type="file" accept=".png, .jpg, .jpeg"
+                                    (change)="onImageSelected($event, item)" #inputFileImg>
+                                <div class="img">
+                                    <mat-icon class="ic-close" *ngIf="!item.isDefaultImg" (click)="removeImage(item)">
+                                        close
+                                    </mat-icon>
+                                    <img [src]="item.pic">
+                                    <span *ngIf="item.isDefaultImg" (click)="inputFileImg.click()">Insérer une
+                                        image</span>
+                                </div>
+                                <div class="img-title">{{item.libelle}}</div>
+                            </div>
+                        </div>
+
+                        <div class="cone-file">
+                            <label>CONE BEAM <span style="font-size: 0.9em;">(Fichiers acceptés : dicom
+                                    (.dcm))</span>:</label>
+                            <input style="display: none" type="file" accept=".dcm" (change)="onConeBeamSelected($event)"
+                                #inputFileConeBeam>
+                            <button mat-raised-button color="primary" (click)="inputFileConeBeam.click()"
+                                style="background-color: var(--primary-color);">
+                                <mat-icon>attach_file</mat-icon>Choisir un fichier
+                            </button>
+                            <p>{{coneBeam.fileName}}</p>
+                        </div>
+                        <input matInput placeholder="Nom" style="display: none;" formControlName="photos" name="photos">
+                        <mat-error *ngIf="isForm3Submitted && form3.photos.errors">
+                            <span *ngIf="form3.photos.errors.required">Sélectionnez les photos obligatoire!</span>
+                        </mat-error>
+                        <div class="btn-section">
+                            <button mat-raised-button color="primary" matStepperNext (click)="checkStep3()"
+                                style="background-color: var(--primary-color);">Suivant
+                                <mat-icon class="ic-next">arrow_right_alt</mat-icon></button>
+                            <button style="margin-right: 10px;" mat-button color="primary" matStepperPrevious
+                                class="btn-previous">
+                                <mat-icon class="ic-previous">arrow_right_alt</mat-icon>
+                                Précédent
+                            </button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="step4Form">
+                    <div class="step-title">- Informations complémentaires -</div>
+                    <form [formGroup]="step4Form">
+                        <ng-template matStepLabel>Etape 4</ng-template>
+                        <div class="note">
+                            <img src="../../../../assets/img/dents/patterndentmanquante.png" class="img-note"><b
+                                style="color: var(--primary-color); font-size: 1em;">[ 1 clic ]</b> Dent(s) manquante(s)
+                        </div>
+                        <div class="note">
+                            <img src="../../../../assets/img/dents/patterndentanepasdeplacer.png" class="img-note"><b
+                                style="color: var(--primary-color); font-size: 1em;">[ 2 clics ]</b> Dent(s) à ne pas
+                            déplacer
+                        </div>
+                        <div class="note">
+                            <img src="../../../../assets/img/dents/patternimplant.png" class="img-note"><b
+                                style="color: var(--primary-color); font-size: 1em;">[ 3 clics ]</b> Implant(s)
+                        </div>
+                        <div class="note">
+                            <img src="../../../../assets/img/dents/patterncouronne.png" class="img-note"><b
+                                style="color: var(--primary-color); font-size: 1em;">[ 4 clics ]</b> Couronne(s)
+                        </div>
+                        <div class="img-dents-container">
+                            <div class="img-dents-row">
+                                <div class="img-dent" *ngFor="let item of typeDent">
+                                    <img [src]="getImageSrc(item.idTypeDent)" (click)="onDentClicked(item)"
+                                        [ngClass]="{'bg-dent-0': item.traitement===0, 'bg-dent-1': item.traitement===1, 'bg-dent-2': item.traitement===2, 'bg-dent-3': item.traitement===3, 'bg-dent-4': item.traitement===4}">
+                                    <span>{{item.idTypeDent}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn-section">
+                            <button mat-raised-button color="primary" (click)="onSubmit()"
+                                style="background-color: var(--primary-color);">Enregistrer</button>
+                            <button style="margin-right: 10px;" mat-button color="primary" matStepperPrevious
+                                class="btn-previous">
+                                <mat-icon class="ic-previous">arrow_right_alt</mat-icon>
+                                Précédent
+                            </button>
+                        </div>
+                    </form>
+                </mat-step>
+            </mat-horizontal-stepper>
+        </mat-card>
+    </div>
+</div>

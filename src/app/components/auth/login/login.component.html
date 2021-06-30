@@ -1,0 +1,41 @@
+<div class="login-container">
+    <div>
+        <p class="page-title">Connectez vous</p>
+        <form [formGroup]="loginForm">
+            <div>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Login</mat-label>
+                        <input matInput placeholder="Login" formControlName="email" name="email">
+                        <mat-error *ngIf="f.email.errors">
+                            <span *ngIf="f.email.errors.required">Login est requis!</span>
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mot de passe</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Mot de passe"
+                            formControlName="password" name="password">
+                        <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">
+                            {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="f.password.errors">
+                            <span *ngIf="f.password.errors.required">Mot de passe est requis!</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="btn-forgot">
+                <button mat-button color="primary" style="padding-right: 0px;" (click)="forgotPassword()">Mot de passe
+                    oublié?</button>
+            </div>
+            <div class="btn-section">
+                <button class="btn-login" mat-raised-button style="background-color: var(--primary-color);"
+                    type="submit" color="primary" (click)="onSubmit()">Se connecter</button>
+            </div>
+        </form>
+        <div class="btn-section">
+            <button mat-stroked-button class="secondary-btn" color="primary" style="color: var(--primary-color)" (click)="register()">S'inscrire</button>
+        </div>
+    </div>
+</div>

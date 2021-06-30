@@ -1,0 +1,138 @@
+.mode-utilisation {
+    display: flex;
+    flex-direction: column;
+}
+
+.mode-utilisation-body {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 100%;
+    color: #2c2c2c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.mode-utilisation-body img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.mode-utilisation-body .image {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.mode-utilisation-body .description {
+    width: 50%;
+}
+
+@media screen and (max-width: 1300px) {
+    .mode-utilisation-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .mode-utilisation-body img {
+        width: 80%;
+    }
+
+    .mode-utilisation-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .mode-utilisation-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .mode-utilisation-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .mode-utilisation-body img {
+        width: 80%;
+    }
+
+    .mode-utilisation-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .mode-utilisation-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .mode-utilisation-body {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .mode-utilisation-body img {
+        width: 80%;
+    }
+
+    .mode-utilisation-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .mode-utilisation-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .mode-utilisation-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .mode-utilisation-body img {
+        width: 100%;
+    }
+
+    .mode-utilisation-body .image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .mode-utilisation-body .description {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .mode-utilisation-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .mode-utilisation-body img {
+        width: 100%;
+    }
+
+    .mode-utilisation-body .image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .mode-utilisation-body .description {
+        width: 100%;
+    }
+}

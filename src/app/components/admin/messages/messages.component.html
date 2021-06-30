@@ -1,0 +1,63 @@
+<div class="traitements-container">
+    <!--<mat-card>Simple card</mat-card>-->
+    <div class="custom-card">
+        <mat-card class="mat-elevation-z3">
+            <p class="mat-card-title">Messages anonymes</p>
+            <div class="" *ngIf="messages.length>0 ; else noItems">
+                <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z1">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="firstName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom & Prenom </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span>{{row.firstName}} {{row.lastName}}</span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="emailEm">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.emailEm}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="objet">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Objet </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.objet}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="dateMsg">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date d'envoi </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.dateMsg | date}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="dateLect">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vu à </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.dateLect | date}}
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="cursor: pointer;"
+                        [style.font-weight]="row.etat === 'N' ? 'bold' : ''" (click)="readMessage(row)">
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+            </div>
+
+            <ng-template #noItems>
+                <div class="no-items">Aucun message à afficher!</div>
+            </ng-template>
+
+        </mat-card>
+    </div>
+</div>

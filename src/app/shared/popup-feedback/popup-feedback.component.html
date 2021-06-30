@@ -1,0 +1,18 @@
+<div class="popup">
+    <mat-toolbar class="toolbar" [ngStyle]="{'background':bg_color}">
+      <span class="toolbar-filler" [ngStyle]="{'color':color}">{{ title }}</span>
+      <button mat-icon-button mat-dialog-close class="mat-icon-button sidenav-toggle-button">
+        <mat-icon [ngStyle]="{'color':color}" aria-label="Menu" class="material-icons">close</mat-icon>
+      </button>
+    </mat-toolbar>
+  
+    <div id="content-popup">
+      <div [innerHTML]="message"></div>
+      <div [hidden]="!showAction">
+        <div class="actions">
+          <button mat-raised-button (tap)="onCloseConfirm()" style="margin-right:10px;">Yes</button>
+          <button mat-raised-button (tap)="onCloseCancel()">No</button>
+        </div>
+      </div>
+    </div>
+  </div>

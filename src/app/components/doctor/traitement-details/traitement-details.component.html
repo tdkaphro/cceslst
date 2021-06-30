@@ -1,0 +1,261 @@
+<div class="traitement-container" *ngIf="isOkay">
+    <div class="custom-card custom-card-p0">
+        <mat-card class="mat-elevation-z3 card-patient"
+            style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+            <div class="traitement-header">
+                <div class="patient-info">
+                    <span class="patient-name">{{traitementDetails.nomPatient}}
+                        {{traitementDetails.prenomPatient}}</span>
+                    <label style="margin-right: 10px; margin-left: 20px;"><b>Age:</b></label>
+                    <span class="patient-name">{{traitementDetails.patientAge}} ans</span>
+                    <span>-</span>
+                    <span class="patient-name">{{traitementDetails.dateCreation | date}}</span>
+                </div>
+                <div class="back-button">
+                    <button mat-stroked-button color="primary" (click)="onBackButtonClicked()">
+                        <mat-icon class="ic-previous">arrow_right_alt</mat-icon>Retour
+                    </button>
+                </div>
+            </div>
+        </mat-card>
+        <div class="traitement">
+            <div class="section1">
+                <div class="trt-info">
+                    <mat-card class="mat-elevation-z3">
+                        <div class="info">
+                            <mat-list class="custom-list">
+                                <mat-list-item style="color: var(--primary-color);">
+                                    <mat-icon style="margin-right: 10px;">folder_open</mat-icon>
+                                    TRAITEMENT:
+                                </mat-list-item>
+                                <mat-divider></mat-divider>
+                            </mat-list>
+                            <div class="traitement-info">
+                                <div>
+                                    <label>Traitement</label>
+                                    <span>- {{traitementDetails.typeTraitement}} -</span>
+                                </div>
+                                <div>
+                                    <label>Corriger l’occlusion inversée postérieure (si présente)</label>
+                                    <span>- {{traitementDetails.flgOccIp}} -</span>
+                                </div>
+                                <div>
+                                    <label>Corriger l’occlusion inversée antérieure (si présente)</label>
+                                    <span>- {{traitementDetails.flgOccIa}} -</span>
+                                </div>
+                                <div>
+                                    <label>Fermer la béance (si applicable)</label>
+                                    <span>- {{traitementDetails.flgBeance}} -</span>
+                                </div>
+                                <div>
+                                    <label>Corriger la supracclusion (si présente)</label>
+                                    <span>- {{traitementDetails.flgSupracc}} -</span>
+                                </div>
+                                <div>
+                                    <label>Rétablir la Classe I</label>
+                                    <span>- {{traitementDetails.flgClasse}} -</span>
+                                </div>
+                                <div>
+                                    <label>Réduire le surplomb</label>
+                                    <span>- {{traitementDetails.flgSurplomb}} -</span>
+                                </div>
+                                <div>
+                                    <label>Gestion des encombrements</label>
+                                    <span>- {{traitementDetails.flgEspace}} -</span>
+                                </div>
+                                <div>
+                                    <label>Extractions prévues</label>
+                                    <span>- {{traitementDetails.flgExtraction}} -</span>
+                                </div>
+                                <div>
+                                    <label>Dent(s) manquante(s)</label>
+                                    <span>- {{getDents(1)}} -</span>
+                                </div>
+                                <div>
+                                    <label>Dent(s) à ne pas déplacer</label>
+                                    <span>- {{getDents(2)}} -</span>
+                                </div>
+                                <div>
+                                    <label>Implant(s)</label>
+                                    <span>- {{getDents(3)}}- </span>
+                                </div>
+                                <div>
+                                    <label>Couronne(s)</label>
+                                    <span>- {{getDents(4)}} -</span>
+                                </div>
+                                <div>
+                                    <label>Remarques</label>
+                                    <span>{{traitementDetails.commentaires}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+                <div class="trt-scans"
+                    *ngIf="possibleActions.length > 0 || traitementDetails.listTraitementDocument.length > 0">
+                    <mat-card class="mat-elevation-z3">
+                        <div class="files">
+                            <mat-list class="custom-list">
+                                <mat-list-item style="color: var(--primary-color);">
+                                    <mat-icon style="margin-right: 10px;">folder_open</mat-icon>
+                                    Empreintes:
+                                </mat-list-item>
+                                <mat-divider></mat-divider>
+                            </mat-list>
+                            <div class="files-content">
+                                <div *ngFor="let item of traitementDetails.listTraitementDocument">
+                                    <ng-container *ngIf="!(item.idDocument).includes('PHOTO_')">
+                                        <button mat-raised-button (click)="downloadFile(item.idDocument)"
+                                            color="primary"
+                                            style="background-color: var(--primary-color); margin-bottom: 10px;">
+                                            <mat-icon style="margin-right: 10px;">get_app</mat-icon>
+                                            {{helperService.getLibelleDocument(item.idDocument)}}
+                                        </button>
+                                    </ng-container>
+                                </div>
+                                <div>
+                                    <input style="display: none" type="file" accept=".stl, .dcm"
+                                        (change)="onFileSelected($event)" #inputFile>
+                                </div>
+                                <div *ngIf="possibleActions.length > 0">
+                                    <p style="text-align: center;">Joindre les fichiers manquants</p>
+                                    <div *ngFor="let item of possibleActions" class="possible-actions">
+                                        <button mat-raised-button color="primary" (click)="uploadFile(item)"
+                                            style="background-color: var(--primary-color);" class="possible-action-btn">
+                                            <mat-icon style="margin-right: 10px;">cloud_upload</mat-icon>
+                                            {{item.nomAction}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+                <div class="trt-plan"
+                    *ngIf="traitementPlanVideos.length > 0 || traitementPlanPhotos.length > 0 || traitementPlanPDF.length > 0">
+                    <mat-card class="mat-elevation-z3">
+                        <div class="info">
+                            <mat-list class="custom-list">
+                                <mat-list-item style="color: var(--primary-color);">
+                                    <mat-icon style="margin-right: 10px;">attachment</mat-icon>
+                                    <span class="example-spacer">Plan de traitement:</span>
+                                    <button mat-button color="primary" (click)="handleTrtVisibility()" style="color: var(--accent-color);
+                                    border-radius: 20px;">{{btnTrtTitle}}</button>
+                                </mat-list-item>
+                                <mat-divider *ngIf="!hidePlanTrt"></mat-divider>
+                            </mat-list>
+                            <div class="p-16" *ngIf="!hidePlanTrt">
+                                <div class="videos-section">
+                                    <div class="videos-section-header">
+                                        <p><strong>Vidéos:</strong></p>
+                                    </div>
+                                    <div class="videos-section-body">
+                                        <div *ngFor="let item of traitementPlanVideos; let i=index">
+                                            <button mat-raised-button
+                                                (click)="downloadPlanTraitementFile(item.idTraitementDocument, item.fileName, 'video')"
+                                                color="primary"
+                                                style="background-color: var(--primary-color);margin-right: 10px; border-radius: 20px;">
+                                                <mat-icon style="margin-right: 5px;">play_arrow</mat-icon>
+                                                Vidéo {{i+1}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="photos-section">
+                                    <div class="photos-section-header">
+                                        <p><strong>Photos:</strong></p>
+                                    </div>
+                                    <div class="photos-section-body">
+                                        <div *ngFor="let item of traitementPlanPhotos">
+                                            <button mat-raised-button
+                                                (click)="downloadPlanTraitementFile(item.idTraitementDocument, item.fileName, 'pic')"
+                                                color="primary"
+                                                style="background-color: var(--primary-color);margin-right: 10px; border-radius: 20px;">
+                                                <mat-icon style="margin-right: 5px;">photo</mat-icon>
+                                                {{item.fileName}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rapport-section">
+                                    <div class="rapport-section-header">
+                                        <p><strong>Rapport:</strong></p>
+                                    </div>
+                                    <div class="rapport-section-body">
+                                        <div *ngFor="let item of traitementPlanPDF; let i=index">
+                                            <button mat-raised-button
+                                                (click)="downloadPlanTraitementFile(item.idTraitementDocument, item.fileName, 'pdf')"
+                                                color="primary"
+                                                style="background-color: var(--primary-color);margin-right: 10px; border-radius: 20px;">
+                                                <mat-icon style="margin-right: 5px;">picture_as_pdf</mat-icon>
+                                                Rapport {{i+1}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+                <div class="trt-photos">
+                    <mat-card class="mat-elevation-z3 card-photos">
+                        <div class="photos">
+                            <mat-list class="custom-list">
+                                <mat-list-item style="color: var(--primary-color);">
+                                    <mat-icon style="margin-right: 10px;">collections</mat-icon>
+                                    <span class="example-spacer">Photos et radio:</span>
+                                    <button mat-button color="primary" (click)="downloadPhotos()" style="color: var(--accent-color);
+                                    border-radius: 20px;">{{btnPhotosTitle}}</button>
+                                </mat-list-item>
+                                <mat-divider *ngIf="!hidePhotos"></mat-divider>
+                            </mat-list>
+                          
+                     
+                        </div>
+                            <ngx-gallery *ngIf="!hidePhotos" style=" padding: 16px;" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                    </mat-card>
+                </div>
+            </div>
+
+            <div class="section2 trt-status">
+                <mat-card class="mat-elevation-z3">
+                    <div class="status">
+                        <mat-list class="custom-list">
+                            <mat-list-item style="color: var(--primary-color);">
+                                <mat-icon style="margin-right: 10px;">info</mat-icon>
+                                Statut:
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                        </mat-list>
+                        <div class="status-actions">
+                            <div *ngFor="let item of possibleTransition">
+                                <button mat-raised-button color="primary" (click)="onBtnStatusClicked(item)"
+                                    [style.background-color]="item.nomTransition === 'Annuler' || item.nomTransition === 'Refuser plan de traitement' ? item.etapeCible.color : ''">{{item.nomTransition}}</button>
+                            </div>
+
+                        </div>
+                        <div class="status-content">
+                            <div *ngFor="let item of history" class="traitement-step"
+                                [style.border-left-color]="item.etape?.color"
+                                [style.background-color]="hexToRGB(item.etape?.color, 0.4)">
+                                <div class="value-step">{{item.etape?.libEtape}}</div>
+                                <div class="date-step">- {{item.dateDeb | date: 'dd/MM/yyyy'}} -</div>
+                                <div *ngIf="item.etape?.flgDoc === 'O'" class="btn-actions">
+                                    <button mat-raised-button color="primary" (click)="downloadPlanTraitement(item)">
+                                        <mat-icon style="margin-right: 10px;">get_app</mat-icon>
+                                        {{item.etape?.nomDoc}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+
+        </div>
+        <button mat-fab class="btn-fab" matTooltip="Messages" matTooltipPosition="before" (click)="loadMessages()"
+            style="background-color: var(--primary-color);">
+            <mat-icon>message</mat-icon>
+        </button>
+    </div>
+</div>

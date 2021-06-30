@@ -1,0 +1,136 @@
+.presentation {
+    display: flex;
+    flex-direction: column;
+}
+
+.presentation-body {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 100%;
+    color: #2c2c2c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.presentation-body img {
+    width: 300px;
+}
+
+.presentation-body .image {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presentation-body .description {
+    width: 60%;
+}
+
+.invisible {
+    color: var(--accent-color);
+    font-size: 1.1em;
+}
+
+@media screen and (max-width: 1300px) {
+    .presentation-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .presentation-body img {
+        width: 300px;
+    }
+
+    .presentation-body .image {
+        width: 40%;
+    }
+
+    .presentation-body .description {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .presentation-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .presentation-body img {
+        width: 300px;
+    }
+
+    .presentation-body .image {
+        width: 40%;
+    }
+
+    .presentation-body .description {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .presentation-body {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .presentation-body img {
+        width: 250px;
+    }
+
+    .presentation-body .image {
+        width: 40%;
+    }
+
+    .presentation-body .description {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .presentation-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .presentation-body img {
+        width: 300px;
+    }
+
+    .presentation-body .image {
+        width: 100%;
+    }
+
+    .presentation-body .description {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .presentation-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .presentation-body img {
+        width: 300px;
+    }
+
+    .presentation-body .image {
+        width: 100%;
+    }
+
+    .presentation-body .description {
+        width: 100%;
+    }
+}

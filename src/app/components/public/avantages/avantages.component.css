@@ -1,0 +1,143 @@
+.avantages {
+    display: flex;
+    flex-direction: column;
+}
+
+.avantages-body {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 100%;
+    color: #2c2c2c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.avantages-body img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.avantages-body .image {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.avantages-body .description {
+    width: 50%;
+}
+
+.keys {
+    color: var(--accent-color);
+    font-size: 1.1em;
+}
+
+@media screen and (max-width: 1300px) {
+    .avantages-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .avantages-body img {
+        width: 80%;
+    }
+
+    .avantages-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .avantages-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .avantages-body {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    .avantages-body img {
+        width: 80%;
+    }
+
+    .avantages-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .avantages-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .avantages-body {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .avantages-body img {
+        width: 80%;
+    }
+
+    .avantages-body .image {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .avantages-body .description {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .avantages-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .avantages-body img {
+        width: 100%;
+    }
+
+    .avantages-body .image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .avantages-body .description {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .avantages-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .avantages-body img {
+        width: 100%;
+    }
+
+    .avantages-body .image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .avantages-body .description {
+        width: 100%;
+    }
+}

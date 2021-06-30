@@ -1,0 +1,262 @@
+.traitements-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-name {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.patient-name:hover {
+    text-decoration: underline;
+}
+
+.mat-card-title {
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 10px !important;
+}
+
+.custom-table {
+    margin-top: 60px;
+}
+
+.span-status {
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+}
+
+.search-section {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.search-mat-form-field {
+    font-size: 14px;
+    width: 200px;
+}
+
+.mat-column-login {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-nomPatient {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-typeTraitement {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-dateCreation {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.mat-column-etape {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 30% !important;
+    width: 30% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: center;
+}
+
+.no-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: #767676;
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 1300px) {
+    .mat-column-etape {
+        font-size: 0.8em;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .span-status {
+        padding: 5px 10px;
+    }
+
+    .mat-column-login {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        font-size: 0.8em;
+    }
+
+    .mat-column-nomPatient {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        font-size: 0.8em;
+    }
+
+    .mat-column-typeTraitement {
+        display: none;
+    }
+
+    .mat-column-dateCreation {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+        font-size: 0.8em;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 40% !important;
+        width: 40% !important;
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .mat-column-login {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+        font-size: 0.7em;
+    }
+
+    .mat-column-nomPatient {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+        font-size: 0.7em;
+    }
+
+    .mat-column-typeTraitement {
+        display: none;
+    }
+
+    .mat-column-dateCreation {
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 50% !important;
+        width: 50% !important;
+        font-size: 0.7em;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .mat-column-login {
+        display: none;
+    }
+
+    .mat-column-nomPatient {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+        font-size: 0.7em;
+        border-top-left-radius: 20px;
+    }
+
+    .mat-column-typeTraitement {
+        display: none;
+    }
+
+    .mat-column-dateCreation {
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 75% !important;
+        width: 75% !important;
+        font-size: 0.7em;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .mat-column-login {
+        display: none;
+    }
+
+    .mat-column-nomPatient {
+        flex: 0 0 35% !important;
+        width: 35% !important;
+        font-size: 0.7em;
+        border-top-left-radius: 20px;
+    }
+
+    .mat-column-typeTraitement {
+        display: none;
+    }
+
+    .mat-column-dateCreation {
+        display: none;
+    }
+
+    .mat-column-etape {
+        flex: 0 0 65% !important;
+        width: 65% !important;
+        font-size: 0.7em;
+    }
+
+    .span-status {
+        padding: 5px 10px;
+    }
+}

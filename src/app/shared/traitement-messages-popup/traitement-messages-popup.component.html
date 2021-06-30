@@ -1,0 +1,38 @@
+<div class="popup">
+    <mat-toolbar class="toolbar mat-elevation-z3">
+        <span class="toolbar-filler">Messages</span>
+        <button mat-icon-button mat-dialog-close class="mat-icon-button">
+            <mat-icon style="color:white" aria-label="Menu" class="material-icons">close</mat-icon>
+        </button>
+    </mat-toolbar>
+    <div id="content-popup">
+        <div class="messages-content" #scrollMe>
+            <div *ngFor="let item of messages">
+                <div [ngClass]="item.login === currentUser.login ? 'item-message-right' : 'item-message-left'">
+                    <div
+                        [ngClass]="item.login === currentUser.login ? 'item-message-right-content' : 'item-message-left-content'">
+                        <div
+                            [ngClass]="item.login === currentUser.login ? 'item-message-right-content-message' : 'item-message-left-content-message'">
+                            {{item.commentaire}}</div>
+                        <div [ngClass]="item.login === currentUser.login ? 'date-vu-right' : 'date-vu-left'">
+                            {{item.dateCommentaire | date: 'dd/MM/yyyy HH:mm'}}</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="dialog-actions">
+            <form class="message-form">
+                <mat-form-field class="popup-input">
+                    <mat-label>Message</mat-label>
+                    <textarea matInput placeholder="écrivez ici" name="message" [(ngModel)]="text"></textarea>
+                </mat-form-field>
+                <div class="btn-actions">
+                    <button mat-raised-button color="primary" [disabled]="text === ''" (click)="onSubmit()">
+                        <mat-icon>send</mat-icon>Envoyer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

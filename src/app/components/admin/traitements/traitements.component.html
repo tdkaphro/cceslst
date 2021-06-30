@@ -1,0 +1,66 @@
+<div class="traitements-container">
+    <!--<mat-card>Simple card</mat-card>-->
+    <div class="custom-card">
+        <mat-card class="mat-elevation-z3">
+            <p class="mat-card-title">Demandes</p>
+            <div class="" *ngIf="listTraitements">
+                <div class="search-section">
+                    <mat-form-field class="search-mat-form-field">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Recherche">
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                </div>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="login">
+                        <th mat-header-cell *matHeaderCellDef> Praticien </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span class="patient-name"
+                                routerLink="/admin/main/praticien/{{row.login}}">{{row.userCre.nom}} {{row.userCre.prenom}}</span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="nomPatient">
+                        <th mat-header-cell *matHeaderCellDef> Patient </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span class="patient-name"
+                                routerLink="/admin/main/traitement/{{row.idTraitement}}">{{row.nomPatient}} {{row.prenomPatient}}</span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="typeTraitement">
+                        <th mat-header-cell *matHeaderCellDef> Traitement </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{getTypeTraitement(row.typeTraitement)}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="dateCreation">
+                        <th mat-header-cell *matHeaderCellDef> Date de création </th>
+                        <td mat-cell *matCellDef="let row">
+                            {{row.dateCreation | date}}
+                        </td>
+                    </ng-container>
+
+                    <!-- PIN Column -->
+                    <ng-container matColumnDef="etape">
+                        <th mat-header-cell *matHeaderCellDef> Statut </th>
+                        <td mat-cell *matCellDef="let row">
+                            <span [style.background-color]="row.etape?.color"
+                                class="span-status">{{row.etape?.libEtape}}</span>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+            </div>
+        </mat-card>
+    </div>
+</div>
